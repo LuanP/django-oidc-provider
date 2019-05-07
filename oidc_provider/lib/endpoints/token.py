@@ -215,8 +215,9 @@ class TokenEndpoint(object):
         # Store the token.
         token.save()
 
-        # Forget the old token.
-        self.token.delete()
+        if settings.get('OIDC_DELETE_OLD_TOKEN_ON_REFRESH'):
+            # Forget the old token.
+            self.token.delete()
 
         dic = {
             'access_token': token.access_token,

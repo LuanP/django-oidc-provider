@@ -162,6 +162,13 @@ class DefaultSettings(object):
         return False
 
     @property
+    def OIDC_DELETE_OLD_TOKEN_ON_REFRESH(self):
+        """
+        OPTIONAL. A boolean to set whether old tokens should be deleted when refreshing.
+        """
+        return True
+
+    @property
     def OIDC_TEMPLATES(self):
         return {
             'authorize': 'oidc_provider/authorize.html',
